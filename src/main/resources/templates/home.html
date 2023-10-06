@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	
+	<h1 th:text="${H1}"></h1>
+	<p th:text="${parrafo}"> </p>
+	<img th:src="@{/images/core-logo.png}" style="max-width: 200px;">
+	</br>
+	<a th:href="@{/asignatura/listado/con}">Listado con número de alumnos</a>
+	</br>
+	<a th:href="@{/asignatura/listado/sin}">Listado sin número de alumnos</a>
+	
+
+</body>
+</html>

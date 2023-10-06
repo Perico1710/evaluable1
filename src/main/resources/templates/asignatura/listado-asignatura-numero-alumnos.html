@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title th:text="${titulo}"></title>
+	<style>
+		table {
+			border-collapse: collapse;
+			margin: 0 auto;
+			/* Margen automático para centrar horizontalmente */
+
+		}
+
+		td,
+		th {
+			border: 1px solid darkgray;
+			padding: 8px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 th:text="${H1}"></h1>
+	<p th:if="${listadoAsignatura.size() == 0}">No hay alumno que mostrar</p>
+	<a th:href="@{/home}"> Home </a>
+	<a th:href="@{/asignatura/listado/sin}"> Listado sin numero alumnos</a>
+
+	<table th:if="${listadoAsignatura.size() !=0}">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Nombre</td>
+				<td>Descripcion</td>
+				<td>Tipo</td>
+				<td>Numero de Creditos</td>
+				<td>Numero Alumnos Matriculados</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="asignatura : ${listadoAsignatura}">
+				<td th:text="${asignatura.id}"></td>
+
+				<td>
+					<a th:text="${asignatura.nombre}"
+						th:href="@{/asignatura/listado/lista} + '?nombre=' + ${asignatura.nombre}"></a>
+				</td>
+
+
+				<td th:text="${asignatura.descripcion}"></td>
+				<td th:text="${asignatura.tipo}"></td>
+				<td th:text="${asignatura.numeroCreditos}"></td>
+				<td th:text="${asignatura.numAlumnosMatriculados}"></td>
+
+			</tr>
+
+		</tbody>
+	</table>
+
+</body>
+
+</html>
